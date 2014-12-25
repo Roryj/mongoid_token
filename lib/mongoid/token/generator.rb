@@ -6,6 +6,7 @@
 # %s - alphanumeric character
 # %w - upper and lower alpha character
 # %p - URL-safe punctuation
+# %S - uppercase alphanumeric character
 #
 # Any pattern can be followed by a number, representing how many of that type to generate
 
@@ -31,6 +32,8 @@ module Mongoid
             integer(length)
           when 's'
             alphanumeric(length)
+          when 'S'
+            upper_alphanumeric(length)
           when 'w'
             alpha(length)
           when 'p'
