@@ -68,6 +68,11 @@ module Mongoid
         (1..length).collect { (i = Kernel.rand(62); i += ((i < 10) ? 48 : ((i < 36) ? 55 : 61 ))).chr }.join
       end
 
+      def self.upper_alphanumeric(length = 1)
+        require 'securerandom'
+        SecureRandom.urlsafe_base64(length * 3).gsub(/[a-z\-_]/, "")[0...length]
+      end
+
       def self.punctuation(length = 1)
         self.rand_string_from_chars ['.','-','_','=','+','$'], length
       end
