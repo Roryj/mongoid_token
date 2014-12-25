@@ -13,7 +13,7 @@
 module Mongoid
   module Token
     module Generator
-      REPLACE_PATTERN = /%((?<character>[cCdDpsw]{1})(?<length>\d+(,\d+)?)?)/
+      REPLACE_PATTERN = /%((?<character>[cCdDpsSw]{1})(?<length>\d+(,\d+)?)?)/
 
       def self.generate(pattern)
         pattern.gsub REPLACE_PATTERN do |match|
